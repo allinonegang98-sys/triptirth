@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Tirth | Ujjain</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><i class="fas fa-om"></i> Trip<span>Tirth Travels</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#itinerary">Itinerary</a></li>
+                <li><a href="#fleet">Fleet</a></li>
+                <li><a href="#contact" class="btn-nav">Book Now</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content" data-aos="fade-up">
+            <span class="badge">Trusted by 1000+ Yatris</span>
+            <h1>Spiritual Journeys in the Heart of India</h1>
+            <p>Exclusive Ujjain Darshan, Omkareshwar, and Madhya Pradesh Tour Packages.</p>
+            <div class="hero-btns">
+                <a href="#packages" class="btn-primary">Explore Packages</a>
+                <a href="#contact" class="btn-secondary">Plan My Trip</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trust Indicators -->
+    <section class="trust-bar">
+        <div class="container trust-grid">
+            <div class="trust-item" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-shield-alt"></i> <span>Safe & Sanitized Cabs</span></div>
+            <div class="trust-item" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-user-check"></i> <span>Verified Drivers</span></div>
+            <div class="trust-item" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-headset"></i> <span>24/7 Support</span></div>
+            <div class="trust-item" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-wallet"></i> <span>Best Price Guarantee</span></div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Popular Tour Packages</h2>
+            <p class="subtitle" data-aos="fade-up">Curated spiritual and historical journeys across Madhya Pradesh.</p>
+            
+            <div class="package-grid">
+                
+                <!-- Package 1 -->
+                <div class="package-card" data-aos="fade-up">
+                    <div class="pkg-image">
+                        <img src="images/pics/malwa.png" alt="Magical Malwa">
+                        <span class="pkg-badge">4 Nights / 5 Days</span>
+                    </div>
+                    <div class="pkg-content">
+                        <h3>Magical Malwa Tour</h3>
+                        <p class="pkg-desc">The ultimate MP experience. Visit Ujjain, Omkareshwar, the royal forts of Mandu, and the riverside peace of Maheshwar.</p>
+                        <div class="pkg-includes">
+                            <span><i class="fas fa-utensils"></i> Breakfast & Dinner</span>
+                            <span><i class="fas fa-hotel"></i> Stay</span>
+                            <span><i class="fas fa-car"></i> Cab</span>
+                        </div>
+                        <button class="btn-select" onclick="selectPackage('Magical Malwa Tour')">Book This</button>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="package-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pkg-image">
+                        <img src="images/pics/mandu.jpg" alt="Mandu Fort">
+                        <span class="pkg-badge">2 Nights / 3 Days</span>
+                    </div>
+                    <div class="pkg-content">
+                        <h3>Mandu: City of Joy</h3>
+                        <p class="pkg-desc">Explore the romantic ruins of Roopmati Pavilion, Jahaz Mahal, and Hindola Mahal. A journey through history.</p>
+                        <div class="pkg-includes">
+                            <span><i class="fas fa-utensils"></i> Breakfast & Dinner</span>
+                            <span><i class="fas fa-camera"></i> Sightseeing</span>
+                        </div>
+                        <button class="btn-select" onclick="selectPackage('Mandu Tour')">Book This</button>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="package-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pkg-image">
+                        <img src="images/pics/pachmarhi.jpg" alt="Pachmarhi">
+                        <span class="pkg-badge">2 Nights / 3 Days</span>
+                    </div>
+                    <div class="pkg-content">
+                        <h3>Pachmarhi: Queen of Satpura</h3>
+                        <p class="pkg-desc">MP's only hill station. Witness Bee Falls, Pandav Caves, and Dhoopgarh sunset. A refreshing nature retreat.</p>
+                        <div class="pkg-includes">
+                            <span><i class="fas fa-utensils"></i> Breakfast & Dinner</span>
+                            <span><i class="fas fa-mountain"></i> Nature Tour</span>
+                        </div>
+                        <button class="btn-select" onclick="selectPackage('Pachmarhi Tour')">Book This</button>
+                    </div>
+                </div>
+
+                <!-- Package 4 -->
+                <div class="package-card popular-pkg" data-aos="fade-up">
+                    <div class="popular-tag">Most Booked</div>
+                    <div class="pkg-image">
+                        <img src="images/pics/mahakal&omkareshwer.jpg" alt="Jyotirlinga Tour">
+                        <span class="pkg-badge">2 Nights / 3 Days</span>
+                    </div>
+                    <div class="pkg-content">
+                        <h3>Mahakal & Omkareshwar</h3>
+                        <p class="pkg-desc">Cover two sacred Jyotirlingas. Includes Mahakaleshwar, Bhasma Aarti assistance, and Omkareshwar Darshan.</p>
+                        <div class="pkg-includes">
+                            <span><i class="fas fa-utensils"></i> Breakfast & Dinner</span>
+                            <span><i class="fas fa-om"></i> Darshan</span>
+                        </div>
+                        <button class="btn-select" onclick="selectPackage('Jyotirlinga Package')">Book This</button>
+                    </div>
+                </div>
+
+                <!-- Package 5 -->
+                <div class="package-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pkg-image">
+                        <img src="images/pics/bagalamukhi.jpg" alt="Baglamukhi">
+                        <span class="pkg-badge">1 Night / 1 Day</span>
+                    </div>
+                    <div class="pkg-content">
+                        <h3>Mystical Baglamukhi</h3>
+                        <p class="pkg-desc">A powerful spiritual visit to the Baglamukhi Mata temple (Nalkheda). Ideal for special Havan and Pujas.</p>
+                        <div class="pkg-includes">
+                            <span><i class="fas fa-utensils"></i> Meals Included</span>
+                            <span><i class="fas fa-fire"></i> Puja Assist</span>
+                        </div>
+                        <button class="btn-select" onclick="selectPackage('Baglamukhi Tour')">Book This</button>
+                    </div>
+                </div>
+
+                 <!-- Package 6 -->
+                 <div class="package-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pkg-image">
+                        <img src="images/pics/ujjain.webp" alt="Ujjain">
+                        <span class="pkg-badge">1 Night / 2 Days</span>
+                    </div>
+                    <div class="pkg-content">
+                        <h3>Exclusive Ujjain Darshan</h3>
+                        <p class="pkg-desc">Detailed Ujjain city tour: Mahakal Lok, Kal Bhairav, Ramghat Aarti, and local food exploration.</p>
+                        <div class="pkg-includes">
+                            <span><i class="fas fa-utensils"></i> Breakfast & Dinner</span>
+                            <span><i class="fas fa-city"></i> City Tour</span>
+                        </div>
+                        <button class="btn-select" onclick="selectPackage('Ujjain Exclusive')">Book This</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Itinerary Section -->
+    <section id="itinerary" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">2-Day Darshan Plan</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="day-marker">Day 01</div>
+                    <div class="content">
+                        <h3>Arrival & Ujjain Darshan</h3>
+                        <ul class="detail-list">
+                            <li><i class="fas fa-map-marker-alt"></i> Pick-up from Railway Station / Check-in</li>
+                            <li><i class="fas fa-gopuram"></i> <strong>Temples:</strong> Mahakaleshwar, Mahakal Lok, Harsiddhi, Kaal Bhairav, Gadhkalika, Mangalnath.</li>
+                            <li><i class="fas fa-water"></i> Ramghat Evening Aarti.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="day-marker">Day 02</div>
+                    <div class="content">
+                        <h3>Omkareshwar Journey</h3>
+                        <ul class="detail-list">
+                            <li><i class="fas fa-clock"></i> 6:00 AM Departure</li>
+                            <li><i class="fas fa-om"></i> <strong>Visit:</strong> Omkareshwar & Mamleshwar Jyotirlinga.</li>
+                            <li><i class="fas fa-car"></i> Return to Ujjain (Hotel Drop). Drop-off on Day 3 not included.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section id="fleet" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Premium Fleet</h2>
+            <div class="fleet-grid">
+                <div class="car-card" data-aos="zoom-in">
+                    <div class="car-image">
+                        <img src="images/dezire.avif" alt="Dzire">
+                        <span class="car-badge">Economy</span>
+                    </div>
+                    <div class="car-details">
+                        <h3>Maruti Dzire</h3>
+                        <p>4 Seater | AC</p>
+                        <button class="btn-select" onclick="selectCar('Maruti Dzire')">Select</button>
+                    </div>
+                </div>
+                <div class="car-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="car-image">
+                        <img src="images/ertiga.avif" alt="Ertiga">
+                        <span class="car-badge">Family</span>
+                    </div>
+                    <div class="car-details">
+                        <h3>Maruti Ertiga</h3>
+                        <p>6 Seater | AC</p>
+                        <button class="btn-select" onclick="selectCar('Maruti Ertiga')">Select</button>
+                    </div>
+                </div>
+                <div class="car-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="car-image">
+                        <img src="images/innova.jpg" alt="Innova">
+                        <span class="car-badge">Comfort</span>
+                    </div>
+                    <div class="car-details">
+                        <h3>Toyota Innova</h3>
+                        <p>7 Seater | Dual AC</p>
+                        <button class="btn-select" onclick="selectCar('Toyota Innova')">Select</button>
+                    </div>
+                </div>
+                <div class="car-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="car-image">
+                        <img src="images/urbania.jpg" alt="Traveler">
+                        <span class="car-badge">Group</span>
+                    </div>
+                    <div class="car-details">
+                        <h3>Force Traveler</h3>
+                        <p>13/17 Seater | AC</p>
+                        <button class="btn-select" onclick="selectCar('Force Traveler')">Select</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Transparent Pricing</h2>
+            <div class="price-table-wrapper" data-aos="flip-up">
+                <table class="price-table">
+                    <thead><tr><th>Group Size</th><th>Price (Per Person)</th><th>Action</th></tr></thead>
+                    <tbody>
+                        <tr><td>2 Persons</td><td class="price-highlight">₹3,750</td><td><a href="#contact" class="table-btn">Book</a></td></tr>
+                        <tr><td>3 Persons</td><td class="price-highlight">₹3,150</td><td><a href="#contact" class="table-btn">Book</a></td></tr>
+                        <tr class="best-value"><td>4 Persons <span class="tag">Popular</span></td><td class="price-highlight">₹2,850</td><td><a href="#contact" class="table-btn">Book</a></td></tr>
+                        <tr><td>5 Persons</td><td class="price-highlight">₹2,600</td><td><a href="#contact" class="table-btn">Book</a></td></tr>
+                        <tr><td>6 Persons</td><td class="price-highlight">₹2,300</td><td><a href="#contact" class="table-btn">Book</a></td></tr>
+                        <tr><td>7 Persons</td><td class="price-highlight">₹2,100</td><td><a href="#contact" class="table-btn">Book</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="note center-text">* Prices include Travel & Stay. Fixed rates.</p>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION (NEW) -->
+    <section id="reviews" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Yatri Experiences</h2>
+            <p class="subtitle" data-aos="fade-up">See what our guests say about their spiritual journey.</p>
+            
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card" data-aos="fade-up">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Excellent service! The driver was very polite and the car was clean. We had a great Darshan at Mahakal and Omkareshwar. Highly recommended."</p>
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                        <div class="reviewer-info">
+                            <h4>Rahul Sharma</h4>
+                            <span>Travelled from Delhi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">"The package pricing is very transparent. No hidden charges. The driver guided us well for local food in Ujjain. A memorable trip."</p>
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                        <div class="reviewer-info">
+                            <h4>Priya Patel</h4>
+                            <span>Travelled from Mumbai</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Best taxi service in Ujjain. We booked the Innova for 7 people. Very comfortable ride and safe driving. Jai Mahakal!"</p>
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User">
+                        <div class="reviewer-info">
+                            <h4>Amit Verma</h4>
+                            <span>Travelled from Jaipur</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY & MAP SECTION (NEW) -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Glimpses & Location</h2>
+            
+            <div class="gallery-map-container" data-aos="fade-up">
+                <!-- Mini Gallery -->
+                <div class="mini-gallery">
+                    <img src="images/pics/mahakal&omkareshwer.jpg" alt="Mahakal">
+                    <img src="images/pics/ujjain.webp" alt="Ujjain City">
+                    <img src="images/pics/pachmarhi.jpg" alt="Pachmarhi">
+                    <img src="images/pics/mandu.jpg" alt="Mandu">
+                </div>
+
+                <!-- Google Map Embed -->
+                <div class="map-box">
+                    <h3>Find Us</h3>
+                    <!-- Placeholder Map: Ujjain Junction -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.497262656976!2d75.7833!3d23.1833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39637469de005225%3A0x756437c1d77a7608!2sUjjain%20Junction!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="booking-wrapper" data-aos="zoom-in">
+                <div class="form-header">
+                    <h2>Book Your Trip</h2>
+                    <p>Advance booking required 2-3 days prior.</p>
+                    <div class="alert-box">
+                        <i class="fas fa-exclamation-circle"></i> 20% Advance Payment
+                    </div>
+                </div>
+                <form id="bookingForm">
+                    <div class="row">
+                        <div class="input-group">
+                            <label>Name</label>
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Phone (WhatsApp)</label>
+                            <input type="tel" id="phone" placeholder="+91..." required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group">
+                            <label>Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Persons</label>
+                            <input type="number" id="pax" min="1" placeholder="4" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group">
+                            <label>Package</label>
+                            <select id="packageSelect">
+                                <option value="Jyotirlinga Package">Mahakal & Omkareshwar</option>
+                                <option value="Magical Malwa Tour">Magical Malwa</option>
+                                <option value="Mandu Tour">Mandu</option>
+                                <option value="Pachmarhi Tour">Pachmarhi</option>
+                                <option value="Baglamukhi Tour">Baglamukhi</option>
+                                <option value="Ujjain Exclusive">Ujjain Exclusive</option>
+                                <option value="Custom Trip">Custom Trip</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Car</label>
+                            <select id="carSelect">
+                                <option value="" disabled selected>Select Car</option>
+                                <option value="Maruti Dzire">Maruti Dzire</option>
+                                <option value="Maruti Ertiga">Maruti Ertiga</option>
+                                <option value="Toyota Innova">Toyota Innova</option>
+                                <option value="Force Traveler">Force Traveler</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">Proceed to WhatsApp <i class="fab fa-whatsapp"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Mahakal Tours. All rights reserved.</p>
+        <p>Contact: +91 7067568998</p>
+    </footer>
+
+    <a href="https://wa.me/917067568998" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
