@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Details | Trip Tirth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;"><i class="fas fa-om"></i> Trip<span>Tirth Travels</span></a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#packages">Packages</a></li>
+                <li><a href="index.html#fleet">Fleet</a></li>
+                <li><button id="langToggle" class="btn-nav-outline">हिंदी / English</button></li>
+                <li><a href="#contact" class="btn-nav">Book Now</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-hero" id="pkg-hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <span class="badge" id="pkg-duration">Loading...</span>
+            <h1 id="pkg-title">Loading Package...</h1>
+            <p id="pkg-subtitle">Please wait while we fetch the details.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container package-layout">
+            
+            <div class="package-info">
+                
+                <div class="quick-stats">
+                    <div class="stat-box">
+                        <i class="fas fa-clock"></i>
+                        <span id="pkg-days">-- Days</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="pkg-locations">-- Locations</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-utensils"></i>
+                        <span>Breakfast & Dinner</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-car"></i>
+                        <span>Private Cab</span>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>Overview</h2>
+                    <p id="pkg-desc">Description goes here...</p>
+                </div>
+
+                <div class="content-block">
+                    <h2>Day-wise Itinerary</h2>
+                    <div class="detailed-timeline" id="pkg-timeline">
+                        </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>Inclusions & Exclusions</h2>
+                    <div class="inc-exc-grid">
+                        <div class="inclusions">
+                            <h3><i class="fas fa-check-circle"></i> Included</h3>
+                            <ul id="pkg-inc">
+                                </ul>
+                        </div>
+                        <div class="exclusions">
+                            <h3><i class="fas fa-times-circle"></i> Excluded</h3>
+                            <ul>
+                                <li>Launch / Personal Expenses</li>
+                                <li>Temple Entry Tickets / VIP Pass</li>
+                                <li>Anything not mentioned in inclusions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="package-sidebar">
+                <div class="booking-card" id="contact">
+                    <h3>Book This Package</h3>
+                    <p class="price-tag">Starting from <strong id="pkg-price">₹--</strong> <small>/person</small></p>
+                    
+                    <form id="detailBookingForm">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" id="d-name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp Number</label>
+                            <input type="tel" id="d-phone" placeholder="+91..." required>
+                        </div>
+                        <div class="form-group">
+                            <label>Travel Date</label>
+                            <input type="date" id="d-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Guests</label>
+                            <input type="number" id="d-pax" min="1" value="2" required>
+                        </div>
+                        <input type="hidden" id="d-pkg-name">
+                        
+                        <div class="form-group">
+                            <label>Select Car</label>
+                            <select id="d-car">
+                                <option value="Maruti Dzire">Maruti Dzire</option>
+                                <option value="Maruti Ertiga">Maruti Ertiga</option>
+                                <option value="Toyota Innova">Toyota Innova</option>
+                                <option value="Force Traveler">Force Traveler</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary full-width">Send Enquiry <i class="fab fa-whatsapp"></i></button>
+                    </form>
+                    <p class="note-small"><i class="fas fa-lock"></i> 20% Advance to confirm booking.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Trip Tirth Travels. All rights reserved.</p>
+        <p>Contact: +91 7067568998</p>
+    </footer>
+    
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">×</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
