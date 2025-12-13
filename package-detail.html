@@ -10,18 +10,28 @@
 </head>
 <body>
 
-    <nav class="navbar">
+    <nav class="navbar" role="navigation">
         <div class="container">
-            <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;"><i class="fas fa-om"></i> Trip<span>Tirth Travels</span></a></div>
+            <div class="logo">
+                <a href="index.html" style="text-decoration:none; color:inherit;">
+                    <i class="fas fa-om"></i> Trip<span>Tirth</span>
+                </a>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#packages">Packages</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="explore-ujjain.html">Explore</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="faq.html">FAQ</a></li>
                 <li><a href="index.html#fleet">Fleet</a></li>
-                <li><button id="langToggle" class="btn-nav-outline">हिंदी / English</button></li>
-                <li><a href="#contact" class="btn-nav">Book Now</a></li>
+                <li><a href="index.html#contact" class="btn-nav">Book Now</a></li>
             </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
+            <div class="hamburger" aria-label="Menu" role="button">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
             </div>
         </div>
     </nav>
@@ -36,54 +46,51 @@
     </header>
 
     <section class="section">
+        <!-- Removed inline style forcing grid columns -->
         <div class="container package-layout">
             
             <div class="package-info">
                 
+                <!-- Removed inline style forcing 4 columns -->
                 <div class="quick-stats">
                     <div class="stat-box">
-                        <i class="fas fa-clock"></i>
+                        <i class="fas fa-clock" style="color:var(--primary);"></i>
                         <span id="pkg-days">-- Days</span>
                     </div>
                     <div class="stat-box">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i class="fas fa-map-marker-alt" style="color:var(--primary);"></i>
                         <span id="pkg-locations">-- Locations</span>
                     </div>
                     <div class="stat-box">
-                        <i class="fas fa-utensils"></i>
-                        <span>Breakfast & Dinner</span>
+                        <i class="fas fa-utensils" style="color:var(--primary);"></i>
+                        <span>Meals</span>
                     </div>
                     <div class="stat-box">
-                        <i class="fas fa-car"></i>
+                        <i class="fas fa-car" style="color:var(--primary);"></i>
                         <span>Private Cab</span>
                     </div>
                 </div>
 
-                <div class="content-block">
+                <div class="content-block" style="margin-bottom: 30px;">
                     <h2>Overview</h2>
                     <p id="pkg-desc">Description goes here...</p>
                 </div>
 
-                <div class="content-block">
+                <div class="content-block" style="margin-bottom: 30px;">
                     <h2>Day-wise Itinerary</h2>
                     <div class="detailed-timeline" id="pkg-timeline">
                         </div>
                 </div>
 
                 <div class="content-block">
-                    <h2>Inclusions & Exclusions</h2>
+                    <h2>Inclusions</h2>
+                    <!-- Removed inline styles -->
                     <div class="inc-exc-grid">
-                        <div class="inclusions">
-                            <h3><i class="fas fa-check-circle"></i> Included</h3>
-                            <ul id="pkg-inc">
-                                </ul>
-                        </div>
-                        <div class="exclusions">
-                            <h3><i class="fas fa-times-circle"></i> Excluded</h3>
-                            <ul>
-                                <li>Launch / Personal Expenses</li>
-                                <li>Temple Entry Tickets / VIP Pass</li>
-                                <li>Anything not mentioned in inclusions</li>
+                        <div class="inclusions full-width-inclusions">
+                            <h3 style="font-size: 1.1rem; color: #25d366; margin-bottom: 15px;"><i class="fas fa-check-circle"></i> Package Includes</h3>
+                            <!-- Inline grid style here is okay for small list items, but using flex is safer -->
+                            <ul id="pkg-inc" class="inclusions-list">
+                                <!-- Dynamically populated -->
                             </ul>
                         </div>
                     </div>
@@ -91,32 +98,33 @@
             </div>
 
             <div class="package-sidebar">
+                <!-- Removed inline style for sticky positioning, moved to CSS -->
                 <div class="booking-card" id="contact">
                     <h3>Book This Package</h3>
-                    <p class="price-tag">Starting from <strong id="pkg-price">₹--</strong> <small>/person</small></p>
+                    <p class="price-tag" style="font-size: 1.5rem; color: var(--primary); font-weight: 700; margin: 10px 0;">Starting from <span id="pkg-price">₹--</span> <small style="font-size: 0.9rem; color: #666; font-weight: 400;">/person</small></p>
                     
                     <form id="detailBookingForm">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" id="d-name" placeholder="Your Name" required>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label style="display:block; margin-bottom:5px; font-size:0.9rem;">Name</label>
+                            <input type="text" id="d-name" placeholder="Your Name" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px;">
                         </div>
-                        <div class="form-group">
-                            <label>WhatsApp Number</label>
-                            <input type="tel" id="d-phone" placeholder="+91..." required>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label style="display:block; margin-bottom:5px; font-size:0.9rem;">WhatsApp Number</label>
+                            <input type="tel" id="d-phone" placeholder="+91..." required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px;">
                         </div>
-                        <div class="form-group">
-                            <label>Travel Date</label>
-                            <input type="date" id="d-date" required>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label style="display:block; margin-bottom:5px; font-size:0.9rem;">Travel Date</label>
+                            <input type="date" id="d-date" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px;">
                         </div>
-                        <div class="form-group">
-                            <label>Guests</label>
-                            <input type="number" id="d-pax" min="1" value="2" required>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label style="display:block; margin-bottom:5px; font-size:0.9rem;">Guests</label>
+                            <input type="number" id="d-pax" min="1" value="2" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px;">
                         </div>
                         <input type="hidden" id="d-pkg-name">
                         
-                        <div class="form-group">
-                            <label>Select Car</label>
-                            <select id="d-car">
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="display:block; margin-bottom:5px; font-size:0.9rem;">Select Car</label>
+                            <select id="d-car" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px;">
                                 <option value="Maruti Dzire">Maruti Dzire</option>
                                 <option value="Maruti Ertiga">Maruti Ertiga</option>
                                 <option value="Toyota Innova">Toyota Innova</option>
@@ -126,23 +134,61 @@
                         
                         <button type="submit" class="btn-primary full-width">Send Enquiry <i class="fab fa-whatsapp"></i></button>
                     </form>
-                    <p class="note-small"><i class="fas fa-lock"></i> 20% Advance to confirm booking.</p>
+                    <p class="note-small" style="font-size: 0.8rem; color: #888; margin-top: 15px; text-align: center;"><i class="fas fa-lock"></i> 20% Advance to confirm booking.</p>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Trip Tirth Travels. All rights reserved.</p>
-        <p>Contact: +91 7067568998</p>
+    <!-- NEW FOOTER SECTION -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <!-- Column 1: About -->
+            <div class="footer-section about">
+                <h3>Trip Tirth Travels</h3>
+                <p>Professional and reliable spiritual travel services brought directly to you. Your convenience and safe darshan is our priority.</p>
+                <p class="copyright-text">© 2025 Trip Tirth Travels. All rights reserved.</p>
+            </div>
+            
+            <!-- Column 2: Quick Links -->
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="explore-ujjain.html">Explore</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="index.html#contact">Book Now</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Follow Us -->
+            <div class="footer-section social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
     
-    <div id="lightbox" class="lightbox">
-        <span class="close-lightbox">×</span>
-        <img class="lightbox-content" id="lightbox-img">
+    <!-- FLOATING BUTTONS -->
+    <div class="floating-btns">
+        <a href="tel:+919039359123" class="float-btn call-btn">
+            <i class="fas fa-phone-alt"></i> Call
+        </a>
+        <a href="https://wa.me/919039359123" class="float-btn whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
