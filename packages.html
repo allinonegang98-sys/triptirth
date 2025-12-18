@@ -13,7 +13,6 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar" role="navigation">
         <div class="container">
             <div class="logo">
@@ -40,7 +39,6 @@
         </div>
     </nav>
 
-    <!-- HEADER -->
     <header class="page-hero" style="background-image: url('images/pics/mhakal.jpg'); height: 40vh;" role="banner">
         <div class="overlay"></div>
         <div class="hero-content">
@@ -49,13 +47,12 @@
         </div>
     </header>
 
-    <!-- FILTER SECTION -->
     <section class="filter-section">
         <div class="container">
             <div class="filter-btns">
                 <button class="filter-btn active" onclick="filterPackages('all')">All</button>
                 <button class="filter-btn" onclick="filterPackages('ujjain-tour')">Ujjain Tours</button>
-                <button class="filter-btn" onclick="filterPackages('spiritual')">Jyotirlinga</button>
+                <button class="filter-btn" onclick="filterPackages('spiritual')">Jyotirlinga & Spiritual</button>
                 <button class="filter-btn" onclick="filterPackages('heritage')">Heritage/Nature</button>
                 <button class="filter-btn" onclick="filterPackages('short')">1-2 Days</button>
                 <button class="filter-btn" onclick="filterPackages('long')">3+ Days</button>
@@ -63,172 +60,244 @@
         </div>
     </section>
 
-    <!-- PACKAGES GRID -->
     <section class="section">
         <div class="container">
             <div class="package-grid" id="packageGrid">
                 
-                <!-- Premium (Tag: Spiritual, Long, Ujjain Tour) -->
                 <div class="package-card premium-pkg" data-aos="fade-up" data-category="spiritual ujjain-tour" data-duration="long">
                     <div class="premium-tag">PREMIUM ★</div>
                     <div class="pkg-image">
-                        <img src="images/pics/mhakal1.jpg" alt="Premium Mahakal" loading="lazy">
-                        <span class="pkg-badge">2N / 3D</span>
+                        <img src="images/pics/mahakal&omkareshwer.jpg" alt="Premium Ujjain" loading="lazy">
+                        <span class="pkg-badge">2 Days</span>
                     </div>
                     <div class="pkg-content">
-                        <h3>Premium Mahakal & Omkareshwar</h3>
-                        <p class="pkg-desc">Luxury experience with VIP Darshan assistance, premium stay, and dedicated guide.</p>
+                        <h3>Ujjain & Omkareshwar Package</h3>
+                        <p class="pkg-desc">Complete 2-Day Tour covering Ujjain Temples & Omkareshwar. Includes Stay & Private Taxi.</p>
                         <div class="pkg-includes">
-                            <span><i class="fas fa-star"></i> VIP</span>
-                            <span><i class="fas fa-hotel"></i> 4★ Stay</span>
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
                         </div>
                         <a href="package-detail.html?id=premium" class="btn-select">View Details</a>
                         <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
+                        <div style="text-align: center; margin-top: 5px; font-weight: bold; color: var(--primary);">Starting ₹3750</div>
                     </div>
                 </div>
 
-                <!-- Standard Jyotirlinga (Tag: Spiritual, Long, Ujjain Tour) -->
                 <div class="package-card popular-pkg" data-aos="fade-up" data-category="spiritual ujjain-tour" data-duration="long">
                     <div class="popular-tag">Most Booked</div>
                     <div class="pkg-image">
-                        <img src="images/pics/mahakal&omkareshwer.jpg" alt="Jyotirlinga" loading="lazy">
-                        <span class="pkg-badge">2N / 3D</span>
+                        <img src="images/pics/mhakal1.jpg" alt="Basic Ujjain" loading="lazy">
                     </div>
                     <div class="pkg-content">
-                        <h3>Mahakal & Omkareshwar</h3>
-                        <p class="pkg-desc">Cover two sacred Jyotirlingas. Includes Mahakaleshwar, Bhasma Aarti assistance.</p>
+                        <h3>Basic Ujjain Darshan</h3>
+                        <p class="pkg-desc">Short spiritual tour covering main temples of Ujjain. Ideal for a quick divine getaway.</p>
                         <div class="pkg-includes">
-                            <span><i class="fas fa-utensils"></i> Meals</span>
-                            <span><i class="fas fa-om"></i> Darshan</span>
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
                         </div>
                         <a href="package-detail.html?id=jyotirlinga" class="btn-select">View Details</a>
                         <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
                     </div>
                 </div>
 
-                <!-- Malwa (Tag: Heritage, Long) -->
-                <div class="package-card" data-aos="fade-up" data-category="heritage" data-duration="long">
+                <div class="package-card" data-aos="fade-up" data-category="heritage" data-duration="short">
                     <div class="pkg-image">
-                        <img src="images/pics/malwa.png" alt="Malwa" loading="lazy">
-                        <span class="pkg-badge">4N / 5D</span>
+                        <img src="images/pics/malwa.png" alt="Indore City" loading="lazy">
                     </div>
                     <div class="pkg-content">
-                        <h3>Magical Malwa Tour</h3>
-                        <p class="pkg-desc">The ultimate MP experience. Visit Ujjain, Omkareshwar, the royal forts of Mandu, and Maheshwar.</p>
+                        <h3>Indore City Tour</h3>
+                        <p class="pkg-desc">Experience a seamless journey through Indore with our expert guidance. Discover the city's best routes, attractions, and hidden gems.</p>
                         <div class="pkg-includes">
-                            <span><i class="fas fa-hotel"></i> Stay</span>
-                            <span><i class="fas fa-camera"></i> Tours</span>
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
                         </div>
-                        <a href="package-detail.html?id=malwa" class="btn-select">View Details</a>
+                        <a href="package-detail.html?id=indore" class="btn-select">View Details</a>
                         <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
                     </div>
                 </div>
 
-                <!-- Mandu (Tag: Heritage, Long) -->
+                <div class="package-card" data-aos="fade-up" data-category="spiritual" data-duration="short">
+                    <div class="pkg-image">
+                        <img src="images/pics/mahakal&omkareshwer.jpg" alt="Mamleshwar" loading="lazy">
+                    </div>
+                    <div class="pkg-content">
+                        <h3>Mamleshwar Darshan</h3>
+                        <p class="pkg-desc">Explore Mamleshwar's best routes and sacred spots. Hassle-free journey to the ancient Jyotirlinga.</p>
+                        <div class="pkg-includes">
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
+                        </div>
+                        <a href="package-detail.html?id=mamleshwar" class="btn-select">View Details</a>
+                        <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
+                    </div>
+                </div>
+
                 <div class="package-card" data-aos="fade-up" data-category="heritage" data-duration="long">
                     <div class="pkg-image">
                         <img src="images/pics/mandu.jpg" alt="Mandu" loading="lazy">
-                        <span class="pkg-badge">2N / 3D</span>
                     </div>
                     <div class="pkg-content">
                         <h3>Mandu: City of Joy</h3>
-                        <p class="pkg-desc">Explore the romantic ruins of Roopmati Pavilion, Jahaz Mahal, and Hindola Mahal.</p>
+                        <p class="pkg-desc">Step back in time and explore the architectural marvels and legendary romance of Mandu.</p>
                         <div class="pkg-includes">
-                            <span><i class="fas fa-history"></i> Heritage</span>
-                            <span><i class="fas fa-utensils"></i> Meals</span>
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
                         </div>
                         <a href="package-detail.html?id=mandu" class="btn-select">View Details</a>
                         <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
                     </div>
                 </div>
 
-                <!-- Pachmarhi (Tag: Nature/Heritage, Long) -->
-                <div class="package-card" data-aos="fade-up" data-category="heritage" data-duration="long">
-                    <div class="pkg-image">
-                        <img src="images/pics/pachmarhi.jpg" alt="Pachmarhi" loading="lazy">
-                        <span class="pkg-badge">2N / 3D</span>
-                    </div>
-                    <div class="pkg-content">
-                        <h3>Pachmarhi: Queen of Satpura</h3>
-                        <p class="pkg-desc">MP's only hill station. Witness Bee Falls, Pandav Caves, and Dhoopgarh sunset.</p>
-                        <div class="pkg-includes">
-                            <span><i class="fas fa-mountain"></i> Nature</span>
-                            <span><i class="fas fa-utensils"></i> Meals</span>
-                        </div>
-                        <a href="package-detail.html?id=pachmarhi" class="btn-select">View Details</a>
-                        <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
-                    </div>
-                </div>
-
-                <!-- Baglamukhi (Tag: Spiritual, Short, Ujjain Tour) -->
                 <div class="package-card" data-aos="fade-up" data-category="spiritual ujjain-tour" data-duration="short">
                     <div class="pkg-image">
                         <img src="images/pics/bagalamukhi.jpg" alt="Baglamukhi" loading="lazy">
-                        <span class="pkg-badge">1 Day</span>
                     </div>
                     <div class="pkg-content">
                         <h3>Mystical Baglamukhi</h3>
-                        <p class="pkg-desc">A powerful spiritual visit to the Baglamukhi Mata temple (Nalkheda). Ideal for Havan.</p>
+                        <p class="pkg-desc">Embark on a spiritually charged journey to the renowned Baglamukhi Mata Temple in Nalkheda.</p>
                         <div class="pkg-includes">
-                            <span><i class="fas fa-fire"></i> Puja</span>
-                            <span><i class="fas fa-car"></i> Cab</span>
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
                         </div>
                         <a href="package-detail.html?id=baglamukhi" class="btn-select">View Details</a>
                         <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
                     </div>
                 </div>
 
-                <!-- Ujjain (Tag: Spiritual, Short, Ujjain Tour) -->
                 <div class="package-card" data-aos="fade-up" data-category="spiritual ujjain-tour" data-duration="short">
                     <div class="pkg-image">
                         <img src="images/pics/ujjain.webp" alt="Ujjain" loading="lazy">
-                        <span class="pkg-badge">1N / 2D</span>
                     </div>
                     <div class="pkg-content">
                         <h3>Exclusive Ujjain Darshan</h3>
-                        <p class="pkg-desc">Detailed Ujjain city tour: Mahakal Lok, Kal Bhairav, Ramghat Aarti, and local food.</p>
+                        <p class="pkg-desc">Discover the spiritual essence of Ujjain with our comprehensive city tour.</p>
                         <div class="pkg-includes">
-                            <span><i class="fas fa-city"></i> City Tour</span>
-                            <span><i class="fas fa-utensils"></i> Meals</span>
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
                         </div>
                         <a href="package-detail.html?id=ujjain" class="btn-select">View Details</a>
                         <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
                     </div>
                 </div>
 
-                <!-- Ujjain Premium Package (Tag: Spiritual, Long, Ujjain Tour) -->
                 <div class="package-card premium-pkg" data-aos="fade-up" data-category="spiritual ujjain-tour" data-duration="long">
                     <div class="premium-tag">PREMIUM ★</div>
                     <div class="pkg-image">
                         <img src="images/pics/ujjain.webp" alt="Ujjain Premium" loading="lazy">
-                        <span class="pkg-badge">2N / 3D</span>
                     </div>
                     <div class="pkg-content">
                         <h3>Ujjain Premium Package</h3>
-                        <p class="pkg-desc">Complete Ujjain Darshan + 5 Exclusive Temples: Chintaman, Iskon, Shani Mandir & more.</p>
+                        <p class="pkg-desc">Elevate your pilgrimage with our extensive tour covering 9 gems of Ujjain and exclusive temples.</p>
                         <div class="pkg-includes">
-                            <span><i class="fas fa-star"></i> 9 Temples</span>
-                            <span><i class="fas fa-hotel"></i> Premium</span>
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
                         </div>
                         <a href="package-detail.html?id=ujjain_premium" class="btn-select">View Details</a>
                         <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
                     </div>
                 </div>
 
-                <!-- NEW: Ujjain & Dewas (Tag: Spiritual, Short, Ujjain Tour) -->
                 <div class="package-card" data-aos="fade-up" data-category="spiritual ujjain-tour" data-duration="short">
                     <div class="pkg-image">
                         <img src="images/pics/ujjain.webp" alt="Ujjain Dewas" loading="lazy">
-                        <span class="pkg-badge">1 Day</span>
                     </div>
                     <div class="pkg-content">
                         <h3>Ujjain & Dewas Darshan</h3>
-                        <p class="pkg-desc">Complete Ujjain basic tour combined with a spiritual visit to Dewas Tekari (Chamunda Mata).</p>
+                        <p class="pkg-desc">Combine your Ujjain pilgrimage with a visit to the hilltop temple of Chamunda Mata in Dewas.</p>
                         <div class="pkg-includes">
-                            <span><i class="fas fa-om"></i> Ujjain</span>
-                            <span><i class="fas fa-mountain"></i> Dewas</span>
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
                         </div>
                         <a href="package-detail.html?id=ujjain_dewas" class="btn-select">View Details</a>
+                        <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="package-card" data-aos="fade-up" data-category="spiritual" data-duration="short">
+                    <div class="pkg-image">
+                        <img src="images/pics/ujjain.webp" alt="Dewas Tour" loading="lazy"> </div>
+                    <div class="pkg-content">
+                        <h3>Dewas City Tour</h3>
+                        <p class="pkg-desc">Experience the ultimate convenience of exploring Dewas. Visit Chamunda Mata, Tekri Ganesh, and hidden gems.</p>
+                        <div class="pkg-includes">
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
+                        </div>
+                        <a href="package-detail.html?id=dewas" class="btn-select">View Details</a>
+                        <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="package-card" data-aos="fade-up" data-category="spiritual" data-duration="short">
+                    <div class="pkg-image">
+                        <img src="images/pics/pachmarhi.jpg" alt="Sehore Tour" loading="lazy"> </div>
+                    <div class="pkg-content">
+                        <h3>Sehore Spiritual Tour</h3>
+                        <p class="pkg-desc">Visit Kubreshwar Dham and explore the spiritual serenity of Sehore with our expert guidance.</p>
+                        <div class="pkg-includes">
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
+                        </div>
+                        <a href="package-detail.html?id=sehore" class="btn-select">View Details</a>
+                        <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="package-card" data-aos="fade-up" data-category="heritage spiritual" data-duration="long">
+                    <div class="pkg-image">
+                        <img src="images/pics/mahakal.jpg" alt="Pashupatinath Mandsaur" loading="lazy"> </div>
+                    <div class="pkg-content">
+                        <h3>Pashupatinath Mandsaur</h3>
+                        <p class="pkg-desc">Explore the magnificent Pashupatinath Temple and Gandhi Sagar Dam with a seamless travel experience.</p>
+                        <div class="pkg-includes">
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
+                        </div>
+                        <a href="package-detail.html?id=mandsaur" class="btn-select">View Details</a>
+                        <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="package-card" data-aos="fade-up" data-category="spiritual heritage" data-duration="long">
+                    <div class="pkg-image">
+                        <img src="images/pics/malwa.png" alt="Sanwariya Seth" loading="lazy"> </div>
+                    <div class="pkg-content">
+                        <h3>Sanwariya Seth & Chittorgarh</h3>
+                        <p class="pkg-desc">A divine journey to Sanwariya Seth Temple combined with the historic grandeur of Chittorgarh Fort.</p>
+                        <div class="pkg-includes">
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
+                        </div>
+                        <a href="package-detail.html?id=chittorgarh" class="btn-select">View Details</a>
+                        <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="package-card" data-aos="fade-up" data-category="spiritual" data-duration="long">
+                    <div class="pkg-image">
+                        <img src="images/pics/malwa.png" alt="Khatu Shyam Sikar" loading="lazy"> </div>
+                    <div class="pkg-content">
+                        <h3>Khatu Shyam (Sikar) Tour</h3>
+                        <p class="pkg-desc">Experience the ultimate convenience of exploring Khatu Shyamji Temple and Sikar's hidden gems.</p>
+                        <div class="pkg-includes">
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
+                        </div>
+                        <a href="package-detail.html?id=khatu_shyam" class="btn-select">View Details</a>
                         <a href="index.html#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
                     </div>
                 </div>
@@ -237,29 +306,28 @@
         </div>
     </section>
 
-    <!-- NEW FOOTER SECTION -->
     <footer class="main-footer">
         <div class="container footer-grid">
-            <!-- Column 1: About -->
             <div class="footer-section about">
                 <h3>Trip Tirth Travels</h3>
                 <p>Professional and reliable spiritual travel services brought directly to you. Your convenience and safe darshan is our priority.</p>
                 <p class="copyright-text">© 2025 Trip Tirth Travels. All rights reserved.</p>
             </div>
             
-            <!-- Column 2: Quick Links -->
             <div class="footer-section links">
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="packages.html">Packages</a></li>
+                    <li><a href="explore-ujjain.html">Explore</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="index.html#contact">Book Now</a></li>
                 </ul>
             </div>
 
-            <!-- Column 3: Follow Us -->
             <div class="footer-section social">
                 <h3>Follow Us</h3>
                 <div class="social-icons">
@@ -271,7 +339,6 @@
         </div>
     </footer>
 
-    <!-- FLOATING BUTTONS -->
     <div class="floating-btns">
         <a href="https://wa.me/919039359123" class="float-btn whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
             <i class="fab fa-whatsapp"></i> WhatsApp
