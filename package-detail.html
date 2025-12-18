@@ -46,12 +46,10 @@
     </header>
 
     <section class="section">
-        <!-- Removed inline style forcing grid columns -->
         <div class="container package-layout">
             
             <div class="package-info">
                 
-                <!-- Removed inline style forcing 4 columns -->
                 <div class="quick-stats">
                     <div class="stat-box">
                         <i class="fas fa-clock" style="color:var(--primary);"></i>
@@ -60,10 +58,6 @@
                     <div class="stat-box">
                         <i class="fas fa-map-marker-alt" style="color:var(--primary);"></i>
                         <span id="pkg-locations">-- Locations</span>
-                    </div>
-                    <div class="stat-box">
-                        <i class="fas fa-utensils" style="color:var(--primary);"></i>
-                        <span>Meals</span>
                     </div>
                     <div class="stat-box">
                         <i class="fas fa-car" style="color:var(--primary);"></i>
@@ -76,6 +70,16 @@
                     <p id="pkg-desc">Description goes here...</p>
                 </div>
 
+                <!-- NEW SECTION: PLACES COVERED -->
+                <div class="content-block" style="margin-bottom: 30px;">
+                    <h2>Places Covered</h2>
+                    <div class="places-covered-container">
+                        <ul id="pkg-places" class="places-list-grid">
+                            <!-- Places will be loaded here via JS -->
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="content-block" style="margin-bottom: 30px;">
                     <h2>Day-wise Itinerary</h2>
                     <div class="detailed-timeline" id="pkg-timeline">
@@ -84,11 +88,9 @@
 
                 <div class="content-block">
                     <h2>Inclusions</h2>
-                    <!-- Removed inline styles -->
                     <div class="inc-exc-grid">
                         <div class="inclusions full-width-inclusions">
                             <h3 style="font-size: 1.1rem; color: #25d366; margin-bottom: 15px;"><i class="fas fa-check-circle"></i> Package Includes</h3>
-                            <!-- Inline grid style here is okay for small list items, but using flex is safer -->
                             <ul id="pkg-inc" class="inclusions-list">
                                 <!-- Dynamically populated -->
                             </ul>
@@ -98,7 +100,6 @@
             </div>
 
             <div class="package-sidebar">
-                <!-- Removed inline style for sticky positioning, moved to CSS -->
                 <div class="booking-card" id="contact">
                     <h3>Book This Package</h3>
                     <p class="price-tag" style="font-size: 1.5rem; color: var(--primary); font-weight: 700; margin: 10px 0;">Starting from <span id="pkg-price">₹--</span> <small style="font-size: 0.9rem; color: #666; font-weight: 400;">/person</small></p>
@@ -141,39 +142,48 @@
         </div>
     </section>
 
-    <!-- NEW FOOTER SECTION -->
+    <!-- FOOTER SECTION -->
     <footer class="main-footer">
         <div class="container footer-grid">
-            <!-- Column 1: About -->
             <div class="footer-section about">
-                <h3>Trip Tirth Travels</h3>
-                <p>Professional and reliable spiritual travel services brought directly to you. Your convenience and safe darshan is our priority.</p>
-                <p class="copyright-text">© 2025 Trip Tirth Travels. All rights reserved.</p>
+                <div class="footer-logo">
+                    <i class="fas fa-om"></i> Trip<span>Tirth</span>
+                </div>
+                <p>Your trusted partner for spiritual journeys in Ujjain and Madhya Pradesh. We ensure a divine, comfortable, and safe experience for every yatri.</p>
+                <div class="footer-contact-info">
+                    <p><i class="fas fa-phone-alt"></i> +91 90393 59123</p>
+                    <p><i class="fas fa-envelope"></i> info@triptirth.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Ujjain, Madhya Pradesh, India</p>
+                </div>
             </div>
             
-            <!-- Column 2: Quick Links -->
             <div class="footer-section links">
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="packages.html">Packages</a></li>
-                    <li><a href="explore-ujjain.html">Explore</a></li>
-                    <li><a href="reviews.html">Reviews</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="index.html#contact">Book Now</a></li>
+                    <li><a href="packages.html">Our Packages</a></li>
+                    <li><a href="explore-ujjain.html">Explore Ujjain</a></li>
+                    <li><a href="gallery.html">Photo Gallery</a></li>
+                    <li><a href="reviews.html">Guest Reviews</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
                 </ul>
             </div>
-
-            <!-- Column 3: Follow Us -->
+            
             <div class="footer-section social">
-                <h3>Follow Us</h3>
+                <h3>Connect With Us</h3>
+                <p>Follow us on social media for latest updates and travel tips.</p>
                 <div class="social-icons">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright-text">© 2025 Trip Tirth Travels. All rights reserved.</p>
             </div>
         </div>
     </footer>
