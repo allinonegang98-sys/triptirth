@@ -13,8 +13,8 @@ const navLinks = document.querySelector('.nav-links');
 
 if(hamburger) {
     hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('toggle'); // Transform to X
-        navLinks.classList.toggle('active');  // Slide in menu
+        hamburger.classList.toggle('toggle');
+        navLinks.classList.toggle('active');
     });
 }
 
@@ -45,8 +45,6 @@ if(langBtn) {
     langBtn.addEventListener('click', () => {
         isHindi = !isHindi;
         toggleLanguage(isHindi);
-        
-        // Update button text
         if(isHindi) {
             langBtn.innerText = "English / हिंदी";
         } else {
@@ -77,18 +75,17 @@ document.addEventListener('DOMContentLoaded', () => {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
-        }, 4000); // Change every 4 seconds
+        }, 4000);
     }
 });
 
 
-// --- FAQ ACCORDION LOGIC (FIXED) ---
+// --- FAQ ACCORDION LOGIC ---
 const accordionHeaders = document.querySelectorAll('.accordion-header');
 accordionHeaders.forEach(header => {
     header.addEventListener('click', () => {
         const activeHeader = document.querySelector('.accordion-header.active');
         
-        // Close currently open item if it's not the clicked one
         if(activeHeader && activeHeader !== header) {
             activeHeader.classList.remove('active');
             activeHeader.nextElementSibling.style.maxHeight = null;
@@ -98,8 +95,6 @@ accordionHeaders.forEach(header => {
         const body = header.nextElementSibling;
         
         if(header.classList.contains('active')) {
-            // FIX: Added +100px buffer to scrollHeight to account for vertical padding transition
-            // This ensures content is not cut off at the bottom
             body.style.maxHeight = (body.scrollHeight + 100) + "px";
         } else {
             body.style.maxHeight = null;
@@ -107,7 +102,7 @@ accordionHeaders.forEach(header => {
     });
 });
 
-// --- TOGGLE ESTIMATOR LOGIC (NEW) ---
+// --- TOGGLE ESTIMATOR LOGIC ---
 function toggleEstimator() {
     const estimatorSection = document.getElementById('estimator');
     if (estimatorSection.style.display === 'none') {
@@ -118,17 +113,22 @@ function toggleEstimator() {
     }
 }
 
-// --- SMART CALCULATOR (UPDATED) ---
+// --- SMART CALCULATOR ---
 const packageBaseRates = {
-    'premium': 9499,      // Premium Package
-    'jyotirlinga': 6500,  // Standard
-    'malwa': 12500,       
-    'mandu': 8500,
-    'pachmarhi': 9500,
-    'ujjain': 3500,
-    'baglamukhi': 4500,
-    'ujjain_premium': 5500,
-    'ujjain_dewas': 4000 // New Ujjain & Dewas Package
+    'premium': 3750,      
+    'jyotirlinga': 0, 
+    'mandu': 0,
+    'ujjain': 0,
+    'baglamukhi': 0,
+    'ujjain_premium': 0,
+    'ujjain_dewas': 0,
+    'indore': 0,
+    'mamleshwar': 0,
+    'sehore': 0,
+    'dewas': 0,
+    'mandsaur': 0,
+    'chittorgarh': 0,
+    'khatu_shyam': 0
 };
 
 function calculateTripCost() {
@@ -146,42 +146,30 @@ function calculateTripCost() {
     let carType = carSelect.value;
     let baseRate = packageBaseRates[pkgKey] || 0;
     
+    if (pkgKey === 'premium') {
+        if (adults === 2) baseRate = 3750;
+        else if (adults === 3) baseRate = 3150;
+        else if (adults === 4) baseRate = 2850;
+        else if (adults === 5) baseRate = 2600;
+        else if (adults === 6) baseRate = 2300;
+        else if (adults >= 7) baseRate = 2100;
+    }
+
     if (adults >= 1 && baseRate > 0) {
-        
-        // 1. Vehicle Adjustment (Per Person Surcharge Estimate)
-        let vehicleModifier = 0;
-        if (carType === 'suv') vehicleModifier = 800;
-        if (carType === 'tempotraveller') vehicleModifier = 1200;
-
-        // 2. Base Rates with Vehicle
-        let adultRate = baseRate + vehicleModifier;
-        
-        // 3. Discount Logic for larger groups (only on adult tickets)
-        if (adults > 2) {
-            let discountFactor = (adults - 2) * 0.03; // 3% per extra adult
-            if(discountFactor > 0.30) discountFactor = 0.30; // Max 30% discount
-            adultRate = adultRate * (1 - discountFactor);
-        }
-
-        // Round to nearest 50
-        adultRate = Math.ceil(adultRate / 50) * 50;
-        
-        let total = adultRate * adults;
-
-        perPersonDisplay.innerText = "₹" + adultRate.toLocaleString() + " x " + adults;
+        let total = baseRate * adults;
+        perPersonDisplay.innerText = "₹" + baseRate.toLocaleString() + " x " + adults;
         totalDisplay.innerText = "₹" + total.toLocaleString();
     } else {
-        perPersonDisplay.innerText = "₹0";
-        totalDisplay.innerText = "₹0";
+        perPersonDisplay.innerText = "Contact Us";
+        totalDisplay.innerText = "For Quote";
     }
 }
 
-// --- FILTER PACKAGES LOGIC (UPDATED for Multiple Categories) ---
+// --- FILTER PACKAGES LOGIC ---
 function filterPackages(category) {
     const cards = document.querySelectorAll('.package-card');
     const buttons = document.querySelectorAll('.filter-btn');
 
-    // Update active button
     if(buttons && event) {
         buttons.forEach(btn => btn.classList.remove('active'));
         event.target.classList.add('active');
@@ -191,13 +179,11 @@ function filterPackages(category) {
         const cat = card.getAttribute('data-category');
         const dur = card.getAttribute('data-duration');
 
-        // Check if category matches or if the card's category string includes the selected category
         if (category === 'all') {
             card.style.display = 'flex';
             card.classList.remove('aos-animate');
             setTimeout(() => card.classList.add('aos-animate'), 50);
         } else {
-            // Updated check: Allows for "spiritual ujjain-tour" to match both "spiritual" and "ujjain-tour"
             if ((cat && cat.includes(category)) || dur === category) {
                 card.style.display = 'flex';
                 card.classList.remove('aos-animate');
@@ -210,39 +196,58 @@ function filterPackages(category) {
 }
 
 
-// --- PACKAGE DATA (UPDATED) ---
+// --- PACKAGE DATA (FULLY UPDATED WITH 'PLACES') ---
 const packagesDB = {
     'premium': {
-        title: "Premium Mahakal & Omkareshwar",
-        subtitle: "Luxury Spiritual Journey",
-        duration: "2 Nights / 3 Days",
+        title: "Ujjain & Omkareshwar Package",
+        subtitle: "Where Divinity Meets Comfort - 2 Days",
+        duration: "1 Night / 2 Days",
         locations: "Ujjain & Omkareshwar",
-        image: "images/pics/mhakal1.jpg",
-        price: "9,499",
-        description: "Experience the divine with comfort. This premium package includes 4-star accommodation, Innova Crysta travel, and assistance for VIP Darshan bookings.",
-        timeline: [
-            { day: 1, title: "VIP Arrival", desc: "Pick up in Innova. Welcome drink at 4-star Hotel. Evening VIP entry assistance for Aarti." },
-            { day: 2, title: "Omkareshwar & Mamleshwar", desc: "Exclusive drive to Omkareshwar. Priority Darshan assistance. Boat ride included." },
-            { day: 3, title: "Corridor & Departure", desc: "Guided tour of Mahakal Lok Corridor. Drop at Airport/Station." }
+        image: "images/pics/mahakal&omkareshwer.jpg",
+        price: "3,750 (Starting)",
+        description: "The most comprehensive pilgrimage tour covering Ujjain and Omkareshwar. Includes private taxi service, hotel stay, and complete darshan of all Tirth places.",
+        places: [
+            "Mahakaleshwar Jyotirlinga",
+            "Mahakal Lok Corridor",
+            "Harsiddhi Mata Temple",
+            "Kaal Bhairav Temple",
+            "Mangalnath Temple",
+            "Gadhkalika Temple",
+            "Sandipani Ashram",
+            "Ram Ghat",
+            "Omkareshwar Jyotirlinga",
+            "Mamleshwar Jyotirlinga"
         ],
-        inclusions: ["Breakfast & Dinner", "Innova Crysta", "4-Star Hotel", "VIP Assistance", "Guide"]
+        timeline: [
+            { day: 1, title: "Ujjain Darshan", desc: "<strong>Arrival:</strong> Pick-up from Ujjain Railway Station & Check-in.<br><strong>Temples Covered:</strong> Mahakaleshwar, Mahakal Lok, Harsiddhi Temple, Kaal Bhairav, Gadhkalika, Mangalnath, Ramghat, Sandipani Ashram." },
+            { day: 2, title: "Omkareshwar Darshan", desc: "<strong>Morning (6:00 AM):</strong> Depart for Omkareshwar. Explore Omkareshwar & Mamleshwar Jyotirlinga.<br><strong>Return:</strong> Return to Ujjain, Drop-off at Hotel. Night Stay in Ujjain." },
+            { day: 3, title: "Departure", desc: "Morning Check-out. (Drop-off on Day 3 not included)." }
+        ],
+        inclusions: [
+            "Private Taxi Service", "Hotel Stay", "Darshan: Ujjain, Omkareshwar & All Tirth Places", 
+            "AC Private Cab", "Toll & Parking", "Driver Allowance"
+        ]
     },
-    'malwa': {
-        title: "Magical Malwa Tour",
-        subtitle: "Ujjain • Omkareshwar • Maheshwar • Mandu",
-        duration: "4 Nights / 5 Days",
-        locations: "4 Cities",
-        image: "images/pics/malwa.png",
-        price: "12,500",
-        description: "Embark on a complete spiritual and historical journey through the heart of Madhya Pradesh.",
-        timeline: [
-            { day: 1, title: "Arrival in Indore & Ujjain", desc: "Pick up from Indore Airport/Station. Drive to Ujjain. Check-in. Evening Mahakal Aarti." },
-            { day: 2, title: "Ujjain Darshan", desc: "Mahakaleshwar, Kal Bhairav, Harsiddhi, Ramghat, Sandipani Ashram. Overnight in Ujjain." },
-            { day: 3, title: "Omkareshwar & Maheshwar", desc: "Drive to Omkareshwar for Darshan. Proceed to Maheshwar. Visit Fort and Narmada Ghat. Overnight stay." },
-            { day: 4, title: "Mandu Sightseeing", desc: "Visit Jahaz Mahal, Hindola Mahal, and Roopmati Pavilion. Experience the history of Malwa." },
-            { day: 5, title: "Departure", desc: "Drop back to Indore Airport/Station with beautiful memories." }
+    'jyotirlinga': {
+        title: "Basic Ujjain Darshan Package",
+        subtitle: "Short Spiritual Tour",
+        duration: "1 Night / 2 Days",
+        locations: "Ujjain",
+        image: "images/pics/mhakal1.jpg",
+        price: "Contact for Price", 
+        description: "A short but spiritually fulfilling tour covering the main temples of Ujjain. Ideal for a quick divine getaway.",
+        places: [
+            "Mahakaleshwar Jyotirlinga",
+            "Mahakal Lok Corridor",
+            "Harsiddhi Mata Temple",
+            "Kaal Bhairav Temple",
+            "Mangalnath Temple"
         ],
-        inclusions: ["Breakfast & Dinner", "AC Private Cab", "3-Star Hotel Stay", "Toll & Parking"]
+        timeline: [
+            { day: 1, title: "Ujjain Arrival", desc: "Pick up and Hotel Check-in. Evening visit to Mahakal Lok and Harsiddhi Temple." },
+            { day: 2, title: "Temple Run", desc: "Mahakaleshwar, Kal Bhairav, Mangalnath. Drop at Railway Station." }
+        ],
+        inclusions: ["AC Private Cab", "Toll & Parking", "Driver Allowance", "Hotel Stay"]
     },
     'mandu': {
         title: "Mandu: City of Joy",
@@ -250,44 +255,25 @@ const packagesDB = {
         duration: "2 Nights / 3 Days",
         locations: "Mandu",
         image: "images/pics/mandu.jpg",
-        price: "8,500",
-        description: "Explore the romantic ruins of Mandu, known for the legendary love story of Baz Bahadur and Rani Roopmati.",
+        price: "Contact for Price",
+        description: "Step back in time and explore the architectural marvels of Mandu, the City of Joy. Witness the legendary romance of Baz Bahadur and Rani Roopmati.",
+        places: [
+            "Jahaz Mahal (Ship Palace)",
+            "Hindola Mahal",
+            "Jami Masjid",
+            "Hoshang Shah's Tomb",
+            "Rani Roopmati Pavilion",
+            "Baz Bahadur's Palace",
+            "Rewa Kund",
+            "Echo Point",
+            "Kakara Khoh Waterfall"
+        ],
         timeline: [
             { day: 1, title: "Arrival & Mandu Drive", desc: "Pick up from Indore. Drive to Mandu (approx 2 hrs). Check-in and relax." },
             { day: 2, title: "Full Day Sightseeing", desc: "Visit Jahaz Mahal, Hindola Mahal, Jami Masjid, Hoshang Shah's Tomb, and Roopmati Pavilion." },
             { day: 3, title: "Return", desc: "Morning breakfast and drive back to Indore for departure." }
         ],
-        inclusions: ["Breakfast", "AC Cab", "Heritage Property Stay", "Guide Service"]
-    },
-    'pachmarhi': {
-        title: "Pachmarhi: Queen of Satpura",
-        subtitle: "Hill Station Retreat",
-        duration: "2 Nights / 3 Days",
-        locations: "Pachmarhi",
-        image: "images/pics/pachmarhi.jpg",
-        price: "9,500",
-        description: "Escape to the only hill station of MP. Lush greenery, waterfalls, and ancient caves await you.",
-        timeline: [
-            { day: 1, title: "Arrival & Transfer", desc: "Pick up from Pipariya/Bhopal. Transfer to Pachmarhi. Evening at Jata Shankar." },
-            { day: 2, title: "Nature Tour", desc: "Bee Falls, Pandav Caves, Reechgarh, and sunset at Dhoopgarh." },
-            { day: 3, title: "Departure", desc: "Visit Handi Khoh and drive back for departure." }
-        ],
-        inclusions: ["Breakfast & Dinner", "Gypsy for Local Sightseeing", "Hotel Stay", "Forest Entry"]
-    },
-    'jyotirlinga': {
-        title: "Mahakal & Omkareshwar",
-        subtitle: "The Sacred Jyotirlinga Yatra",
-        duration: "2 Nights / 3 Days",
-        locations: "Ujjain & Omkareshwar",
-        image: "images/pics/mahakal&omkareshwer.jpg",
-        price: "6,500",
-        description: "The most popular pilgrimage tour covering two Jyotirlingas. Includes assistance for Bhasma Aarti booking (subject to availability).",
-        timeline: [
-            { day: 1, title: "Ujjain Arrival", desc: "Pick up and Hotel Check-in. Evening visit to Mahakal Lok and Harsiddhi Temple." },
-            { day: 2, title: "Mahakal & Omkareshwar", desc: "Early morning Mahakal Darshan. Drive to Omkareshwar. Darshan and return to Ujjain." },
-            { day: 3, title: "Local Ujjain & Drop", desc: "Kal Bhairav, Mangalnath. Drop at Railway Station." }
-        ],
-        inclusions: ["Breakfast", "AC Cab", "Hotel Stay", "Darshan Assistance"]
+        inclusions: ["AC Private Cab", "Toll & Parking", "Driver Allowance", "Heritage Property Stay", "Guide Service"]
     },
     'baglamukhi': {
         title: "Mystical Baglamukhi",
@@ -295,13 +281,20 @@ const packagesDB = {
         duration: "1 Night / 1 Day",
         locations: "Nalkheda",
         image: "images/pics/bagalamukhi.jpg",
-        price: "4,500",
-        description: "A focused spiritual trip to Ma Baglamukhi Temple, Nalkheda. Ideal for devotees wishing to perform special Havan and Pujas.",
+        price: "Contact for Price",
+        description: "Embark on a spiritually charged journey to the renowned Baglamukhi Mata Temple in Nalkheda. This sacred destination is famous for its powerful Havan and Pujas.",
+        places: [
+            "Maa Baglamukhi Temple",
+            "Banjari Mata Temple",
+            "Nalkheda Fort",
+            "Dhom Dam",
+            "Mandav Nature Camp"
+        ],
         timeline: [
             { day: 1, title: "Ujjain to Nalkheda", desc: "Morning drive to Nalkheda (approx 2.5 hrs). Darshan and Havan." },
             { day: 1, title: "Return", desc: "Return to Ujjain by evening. Drop at Hotel/Station." }
         ],
-        inclusions: ["AC Cab", "Puja Samagri Assistance", "Refreshments"]
+        inclusions: ["AC Private Cab", "Toll & Parking", "Driver Allowance", "Puja Samagri Assistance"]
     },
     'ujjain': {
         title: "Exclusive Ujjain Darshan",
@@ -309,13 +302,24 @@ const packagesDB = {
         duration: "1 Night / 2 Days",
         locations: "Ujjain City",
         image: "images/pics/ujjain.webp",
-        price: "3,500",
-        description: "Comprehensive tour of Ujjain city. Experience the spiritual vibration of the Mahakal Corridor and ancient temples.",
+        price: "Contact for Price",
+        description: "Discover the spiritual essence of Ujjain with our comprehensive city tour. Beyond the famous Mahakal temple, explore the ancient Kal Bhairav and Ramghat.",
+        places: [
+            "Mahakaleshwar Temple",
+            "Mahakal Lok Corridor",
+            "Harsiddhi Mata Temple",
+            "Kal Bhairav Temple",
+            "Gadhkalika Temple",
+            "Mangalnath Temple",
+            "Sandipani Ashram",
+            "Ram Ghat",
+            "Bhartari Gufa"
+        ],
         timeline: [
             { day: 1, title: "Arrival", desc: "Check-in. Visit Mahakal Lok corridor in the evening. Ramghat Aarti." },
             { day: 2, title: "Temple Run", desc: "Mahakaleshwar, Harsiddhi, Kal Bhairav, Gadhkalika, Mangalnath, Sandipani Ashram. Drop." }
         ],
-        inclusions: ["Breakfast", "AC Cab", "Hotel Stay", "Local Guide"]
+        inclusions: ["AC Private Cab", "Toll & Parking", "Driver Allowance", "Hotel Stay", "Local Guide"]
     },
     'ujjain_premium': {
         title: "Ujjain Premium Package",
@@ -323,14 +327,26 @@ const packagesDB = {
         duration: "2 Nights / 3 Days",
         locations: "Ujjain City (Extended)",
         image: "images/pics/ujjain.webp",
-        price: "5,500",
-        description: "The ultimate Ujjain experience. Covers all standard temples plus 5 exclusive spiritual spots: Asth Vinayak, Chintaman, Shani Mandir, ISKCON & Bhartari Gufa.",
+        price: "Contact for Price",
+        description: "Elevate your pilgrimage with our Ujjain Premium Package. This extensive tour covers not just the main temples but also the hidden spiritual gems like the 84 Mahadevs.",
+        places: [
+            "Mahakaleshwar Temple",
+            "Harsiddhi Mata Temple",
+            "Kal Bhairav Temple",
+            "Sandipani Ashram",
+            "Mangalnath Temple",
+            "Chintaman Ganesh",
+            "ISKCON Temple",
+            "Bhartari Gufa",
+            "Shani Mandir (Navgraha)",
+            "Chaubis Khamba Temple"
+        ],
         timeline: [
             { day: 1, title: "Mahakal & Corridor", desc: "Arrival. Check-in Premium Hotel. Evening Mahakal Lok Corridor & Harsiddhi Mata." },
             { day: 2, title: "The 9 Gems Tour", desc: "Morning Mahakal. Then: Kal Bhairav, Sandipani, Mangalnath. Post lunch: Asth Vinayak, Chintaman Ganesh, Shani Mandir." },
             { day: 3, title: "Final Blessings", desc: "Morning ISKCON Temple & Bhartari Gufa. Drop at Railway Station." }
         ],
-        inclusions: ["Breakfast & Dinner", "AC Cab (3 Days)", "Premium Hotel", "Expert Guide"]
+        inclusions: ["AC Private Cab", "Toll & Parking", "Driver Allowance", "Premium Hotel", "Expert Guide"]
     },
     'ujjain_dewas': {
         title: "Ujjain & Dewas Darshan",
@@ -338,12 +354,173 @@ const packagesDB = {
         duration: "1 Day",
         locations: "Ujjain & Dewas",
         image: "images/pics/ujjain.webp",
-        price: "4,000",
-        description: "A divine combination tour covering the main temples of Ujjain and a visit to the famous Tekari in Dewas to seek blessings from Chamunda Mata and Tulja Bhavani.",
+        price: "Contact for Price",
+        description: "Combine your Ujjain pilgrimage with a visit to the hilltop temple of Chamunda Mata in Dewas. This package offers a perfect blend of divinity and scenic beauty.",
+        places: [
+            "Mahakaleshwar Temple",
+            "Kal Bhairav Temple",
+            "Chamunda Mata (Dewas)",
+            "Tulja Bhavani (Dewas)",
+            "Dewas Tekri (Ropeway)"
+        ],
         timeline: [
             { day: 1, title: "Ujjain & Dewas", desc: "Early Morning Ujjain Darshan (Mahakal, Kal Bhairav). Afternoon drive to Dewas (40km). Visit Dewas Tekari (Ropeway available). Return drop." }
         ],
         inclusions: ["AC Private Cab", "Toll & Parking", "Driver Allowance"]
+    },
+    'indore': {
+        title: "Indore City Tour",
+        subtitle: "The Food & Cultural Capital of MP",
+        duration: "1 Day",
+        locations: "Indore City",
+        image: "images/pics/malwa.png",
+        price: "Contact for Price",
+        description: "Experience a seamless journey through Indore with our expert guidance. Discover the city's best routes, top attractions, and hidden gems with ease.",
+        places: [
+            "Rajwada Palace",
+            "Khajrana Ganesh Temple",
+            "Lal Bagh Palace",
+            "Sarafa Bazaar (Night Market)",
+            "56 Dukan",
+            "Annapurna Mandir",
+            "Kaanch Mandir"
+        ],
+        timeline: [
+            { day: 1, title: "Indore Sightseeing", desc: "Visit Rajwada Palace, Khajrana Ganesh Temple, Lal Bagh Palace. Enjoy evening street food at the famous Sarafa Bazaar (Night Market) or 56 Dukan." }
+        ],
+        inclusions: ["AC Private Cab", "Toll & Parking", "Driver Allowance", "Guide Service"]
+    },
+    'mamleshwar': {
+        title: "Mamleshwar Darshan",
+        subtitle: "Divine Journey to the Ancient Jyotirlinga",
+        duration: "1 Day",
+        locations: "Mamleshwar",
+        image: "images/pics/mahakal&omkareshwer.jpg",
+        price: "Contact for Price",
+        description: "Experience the ultimate convenience and comfort of exploring Mamleshwar with Trip Tirth Travels. Book with us today and enjoy a seamless travel experience.",
+        places: [
+            "Shri Mamleshwar Jyotirlinga",
+            "Satmatrika Temples",
+            "Siddhanath Temple",
+            "Gauri Somnath Temple",
+            "24 Avatars Group of Temples",
+            "Omkar Mandhata Temple"
+        ],
+        timeline: [
+            { day: 1, title: "Mamleshwar & Surroundings", desc: "Visit <strong>Shri Mamleshwar Jyotirlinga</strong>, <strong>Satmatrika Temples</strong>, <strong>Siddhanath Temple</strong>, <strong>Gauri Somnath Temple</strong>, <strong>24 Avatars Group of Temples</strong>, and <strong>Omkar Mandhata Temple</strong>." }
+        ],
+        inclusions: ["AC Private Cab", "Toll & Parking", "Driver Allowance", "Guide Service"]
+    },
+    'dewas': {
+        title: "Dewas City Tour",
+        subtitle: "Abode of Chamunda Mata",
+        duration: "1 Day",
+        locations: "Dewas",
+        image: "images/pics/ujjain.webp", 
+        price: "Contact for Price",
+        description: "Experience the ultimate convenience and comfort of exploring Dewas with Trip Tirth Travels. Book with us today and enjoy a seamless travel experience.",
+        places: [
+            "Chamunda Mata Mandir",
+            "Tulja Bhavani",
+            "Kavadia Hills",
+            "Kila Dewas",
+            "Tekri Ganesh Mandir",
+            "Meetha Talab",
+            "Kheoni Wildlife Sanctuary"
+        ],
+        timeline: [
+            { day: 1, title: "Dewas Sightseeing", desc: "Visit <strong>Chamunda Mata Mandir</strong> and <strong>Tulja Bhavani</strong> on the Tekri (Ropeway available). Explore <strong>Kavadia Hills</strong>, <strong>Kila Dewas</strong>, <strong>Tekri Ganesh Mandir</strong>, <strong>Meetha Talab</strong>, and <strong>Kheoni Wildlife Sanctuary</strong>." }
+        ],
+        inclusions: ["AC Private Cab", "Toll & Parking", "Driver Allowance", "Local Assistance"]
+    },
+    'sehore': {
+        title: "Sehore Spiritual Tour",
+        subtitle: "Kubreshwar Dham & Ancient Temples",
+        duration: "1 Day",
+        locations: "Sehore",
+        image: "images/pics/pachmarhi.jpg", 
+        price: "Contact for Price",
+        description: "Experience the ultimate convenience and comfort of exploring Sehore with Trip Tirth Travels. Our fleet of well-maintained vehicles and experienced drivers ensure a hassle-free journey.",
+        places: [
+            "Kubreshwar Dham",
+            "Devguradia",
+            "Bilkis Gunj",
+            "Shahjahanpura",
+            "Parvati Hills",
+            "Upper Lake",
+            "Badi Jheel Lake",
+            "Lakshmi Narayana Temple"
+        ],
+        timeline: [
+            { day: 1, title: "Sehore Exploration", desc: "Visit the famous <strong>Kubreshwar Dham</strong>. Continue to <strong>Devguradia</strong>, <strong>Bilkis Gunj</strong>, <strong>Shahjahanpura</strong>, and <strong>Parvati Hills</strong>. Relax at <strong>Upper Lake</strong> and <strong>Badi Jheel Lake</strong>. Seek blessings at <strong>Lakshmi Narayana Temple</strong>." }
+        ],
+        inclusions: ["AC Private Cab", "Toll & Parking", "Driver Allowance", "Temple Visit Assistance"]
+    },
+    'mandsaur': {
+        title: "Pashupatinath Mandsaur",
+        subtitle: "Heritage & Spirituality",
+        duration: "1-2 Days",
+        locations: "Mandsaur",
+        image: "images/pics/mahakal.jpg", 
+        price: "Contact for Price",
+        description: "Experience the ultimate convenience and comfort of exploring Mandsaur. Witness the unique 8-faced Pashupatinath Shivling and explore historical caves.",
+        places: [
+            "Pashupatinath Temple",
+            "Buddhist Caves",
+            "Chaturbhuj Nala",
+            "Gandhi Sagar Dam",
+            "Dharmarajeshwar Temple"
+        ],
+        timeline: [
+            { day: 1, title: "Mandsaur Highlights", desc: "Darshan at the famous <strong>Pashupatinath Temple</strong>. Explore the ancient <strong>Buddhist Caves</strong> and <strong>Chaturbhuj Nala</strong>. Visit the scenic <strong>Gandhi Sagar Dam</strong> and the rock-cut <strong>Dharmarajeshwar Temple</strong>." }
+        ],
+        inclusions: ["AC Private Cab", "Toll & Parking", "Driver Allowance", "Local Guide Info"]
+    },
+    'chittorgarh': {
+        title: "Sanwariya Seth & Chittorgarh",
+        subtitle: "Divine Blessings & Fort Tour",
+        duration: "1-2 Days",
+        locations: "Chittorgarh (RJ)",
+        image: "images/pics/malwa.png",
+        price: "Contact for Price",
+        description: "Experience the ultimate convenience and comfort of exploring Chittorgarh. Combine the divine darshan of Sanwariya Seth with a tour of the majestic Chittorgarh Fort.",
+        places: [
+            "Sawariya Seth Temple",
+            "Jaisamand Lake",
+            "Chittorgarh Fort",
+            "Sita Mata Wildlife Sanctuary",
+            "Jagat Temple",
+            "Avari Mata Temple",
+            "Vijay Stambh",
+            "Kirti Stambh",
+            "Rana Kumbha’s Palace"
+        ],
+        timeline: [
+            { day: 1, title: "Temple & Fort Tour", desc: "Seek blessings at <strong>Sawariya Seth Temple</strong>. Visit the massive <strong>Chittorgarh Fort</strong> including <strong>Vijay Stambh</strong>, <strong>Kirti Stambh</strong>, and <strong>Rana Kumbha’s Palace</strong>. Explore <strong>Sita Mata Wildlife Sanctuary</strong> and <strong>Jaisamand Lake</strong>." }
+        ],
+        inclusions: ["AC Private Cab", "Toll & Parking", "Driver Allowance", "State Tax (MP/RJ)"]
+    },
+    'khatu_shyam': {
+        title: "Khatu Shyam (Sikar) Tour",
+        subtitle: "Spiritual Journey to Rajasthan",
+        duration: "2 Days",
+        locations: "Sikar (RJ)",
+        image: "images/pics/malwa.png",
+        price: "Contact for Price",
+        description: "Experience the ultimate convenience and comfort of exploring Sikar. A dedicated pilgrimage to the revered Khatu Shyamji Temple, ensuring a comfortable and devout journey.",
+        places: [
+            "Khatu Shyamji Temple",
+            "Devgarh",
+            "Harsh Nath Temple",
+            "Seth Ramgopal Poddar Chhatri",
+            "Laxmangarh Fort",
+            "Gopinathji Temple",
+            "Jeen Mata Mandir"
+        ],
+        timeline: [
+            { day: 1, title: "Sikar Darshan", desc: "Visit the holy <strong>Khatu Shyamji Temple</strong>. Explore surrounding sites like <strong>Jeen Mata Mandir</strong>, <strong>Harsh Nath Temple</strong>, <strong>Laxmangarh Fort</strong>, and <strong>Devgarh</strong>. Visit <strong>Seth Ramgopal Poddar Chhatri</strong>." }
+        ],
+        inclusions: ["AC Private Cab", "Toll & Parking", "Driver Allowance", "Interstate Permit"]
     }
 };
 
@@ -359,12 +536,27 @@ function loadPackageDetails() {
         document.getElementById('pkg-title').textContent = data.title;
         document.getElementById('pkg-subtitle').textContent = data.subtitle;
         document.getElementById('pkg-hero').style.backgroundImage = `url('${data.image}')`;
-        document.getElementById('pkg-price').textContent = "₹" + data.price;
+        // Show price only for premium package (or if data has specific price)
+        if(data.price && data.price !== "Contact for Price") {
+             document.getElementById('pkg-price').textContent = "₹" + data.price;
+        } else {
+             document.getElementById('pkg-price').textContent = "Ask for Quote";
+        }
+        
         if(document.getElementById('d-pkg-name')) document.getElementById('d-pkg-name').value = data.title;
         document.getElementById('pkg-locations').textContent = data.locations;
         document.getElementById('pkg-desc').textContent = data.description;
-        // Updated Days logic if needed, currently static in HTML or ignored
         
+        // --- NEW: Load Places Covered ---
+        const placesContainer = document.getElementById('pkg-places');
+        if(placesContainer && data.places) {
+            let placesHTML = '';
+            data.places.forEach(place => {
+                placesHTML += `<li><i class="fas fa-map-pin"></i> ${place}</li>`;
+            });
+            placesContainer.innerHTML = placesHTML;
+        }
+
         const timelineContainer = document.getElementById('pkg-timeline');
         let timelineHTML = '';
         data.timeline.forEach(item => {
@@ -431,7 +623,6 @@ if(homeForm) {
         const car = document.getElementById('carSelect').value;
         const pax = document.getElementById('pax').value;
         
-        // Simplified WhatsApp Message Structure
         const text = `Hi, I would like to book the ${pkg}.%0A` +
                      `Name: ${name}%0A` +
                      `Date: ${date}%0A` +
@@ -453,7 +644,6 @@ if(detailForm) {
         const car = document.getElementById('d-car').value;
         const pkgName = document.getElementById('d-pkg-name').value;
         
-        // Simplified WhatsApp Message Structure for Detail Page
         const text = `Hi, I am interested in the ${pkgName}.%0A` +
                      `Name: ${name}%0A` +
                      `Phone: ${phone}%0A` +
