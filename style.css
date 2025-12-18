@@ -305,6 +305,43 @@ html, body {
     font-size: 0.95rem;
 }
 
+/* NEW: Places Covered Styles */
+.places-covered-container {
+    background: #fff8f0; /* Light orange tint */
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ffe4c4;
+}
+
+.places-list-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    font-size: 0.95rem;
+}
+
+.places-list-grid li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    transition: transform 0.2s;
+}
+
+.places-list-grid li:hover {
+    transform: translateX(3px);
+}
+
+.places-list-grid i {
+    color: var(--primary);
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
 .booking-card { 
     background: white; 
     padding: 25px; 
@@ -411,12 +448,143 @@ html, body {
 }
 
 /* --- FOOTER --- */
-/* NEW FOOTER STYLES */
+/* NEW PROFESSIONAL FOOTER STYLES */
 .main-footer {
     background-color: #0a192f; /* Dark Navy Blue */
     color: white;
-    padding: 60px 0 40px;
-    margin-bottom: 60px; /* Space for floating buttons */
+    padding-top: 70px;
+    padding-bottom: 0; /* Removed bottom padding, handled by footer-bottom */
+    margin-bottom: 0; /* REMOVED MARGIN to eliminate white line */
+    font-size: 0.95rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 50px;
+    padding-bottom: 50px;
+}
+
+.footer-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: white;
+    position: relative;
+    padding-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Decorative underline for headings */
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+}
+.footer-logo span { color: var(--primary); }
+
+.footer-section p {
+    color: #a0aec0; /* Lighter text for better readability on dark bg */
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.footer-contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #cbd5e0;
+}
+
+.footer-contact-info i {
+    color: var(--primary);
+    width: 20px;
+    text-align: center;
+}
+
+/* Footer Links */
+.footer-section.links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section.links ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section.links ul li a {
+    color: #a0aec0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-section.links ul li a:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icons a:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+}
+
+/* Footer Bottom Bar */
+.footer-bottom {
+    background-color: #050d1a; /* Darker shade for contrast */
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    /* Extra padding at bottom so floating buttons don't cover text on mobile */
+    padding-bottom: 80px; 
+}
+
+@media (min-width: 768px) {
+    .footer-bottom {
+        padding-bottom: 25px; /* Normal padding on desktop */
+    }
+}
+
+.copyright-text {
+    font-size: 0.9rem;
+    color: #718096;
+    margin: 0;
 }
 
 .footer-grid {
@@ -548,4 +716,219 @@ html, body {
     .main-footer { text-align: center; }
     .footer-section h3::after { left: 50%; transform: translateX(-50%); }
     .social-icons { justify-content: center; }
+
+    /* TWO PACKAGES PER ROW ON MOBILE */
+    .package-grid {
+        grid-template-columns: repeat(2, 1fr); /* Force 2 columns */
+        gap: 10px; /* Smaller gap */
+    }
+
+    .package-card {
+        border-radius: 8px; /* Slightly less rounded */
+    }
+
+    .pkg-image {
+        height: 140px; /* Smaller image height */
+    }
+
+    .pkg-content {
+        padding: 10px; /* Reduced padding */
+    }
+
+    .pkg-content h3 {
+        font-size: 1rem; /* Smaller title */
+        margin-bottom: 5px;
+        line-height: 1.2;
+    }
+
+    .pkg-desc {
+        font-size: 0.75rem; /* Smaller description */
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* Limit text lines */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .pkg-includes {
+        flex-wrap: wrap;
+        gap: 5px;
+        font-size: 0.7rem;
+        margin-bottom: 10px;
+        padding-top: 5px;
+    }
+    
+    .pkg-includes span {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+    }
+
+    .btn-select, .btn-primary {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+    
+    /* Badge adjustments for mobile */
+    .popular-tag, .premium-tag {
+        font-size: 0.65rem;
+        padding: 3px 8px;
+    }
+    
+    .pkg-badge {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+    }
+}
+
+/* --- RATE TABLE (New for Ujjain Tour Page) --- */
+.rate-section {
+    padding: 60px 0;
+    background: #fdfdfd;
+}
+
+.rate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* Increased gap for better spacing */
+    margin-top: 40px;
+}
+
+.rate-card {
+    background: white;
+    border: 1px solid #e0e0e0; /* Subtle border */
+    border-radius: 12px; /* Smoother corners */
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Softer shadow */
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.rate-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+.rate-header {
+    background: var(--dark);
+    color: white;
+    padding: 20px;
+    border-bottom: 3px solid var(--primary);
+}
+
+.rate-header h3 {
+    font-size: 1.4rem;
+    margin: 0 0 5px 0;
+    font-weight: 600;
+}
+
+.rate-header span {
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    font-weight: 400;
+    display: block;
+}
+
+.rate-body {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.rate-price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 15px 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.rate-price small {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #888;
+}
+
+.rate-desc {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.rate-features {
+    list-style: none;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    color: #555;
+    text-align: left;
+    padding: 0 10px;
+}
+
+.rate-features li {
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rate-features li:last-child {
+    border-bottom: none;
+}
+
+.rate-features li i {
+    color: #25d366; /* Green checkmark */
+    font-size: 0.9rem;
+}
+
+/* Sightseeing List Styling */
+.places-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.place-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.place-icon {
+    width: 50px;
+    height: 50px;
+    background: #fff3e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.place-info h4 {
+    margin-bottom: 3px;
+    font-size: 1.1rem;
+}
+
+.place-info p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
 }
