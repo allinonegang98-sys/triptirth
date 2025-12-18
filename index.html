@@ -85,6 +85,7 @@
                 <li><a href="reviews.html" class="lang-en">Reviews</a><a href="reviews.html" class="lang-hi hidden">समीक्षाएं</a></li>
                 <li><a href="about.html" class="lang-en">About</a><a href="about.html" class="lang-hi hidden">हमारे बारे में</a></li>
                 <li><a href="gallery.html" class="lang-en">Gallery</a><a href="gallery.html" class="lang-hi hidden">गैलरी</a></li>
+                <li><a href="ujjain-tour.html" class="lang-en">Ujjain</a><a href="gallery.html" class="lang-hi hidden">उज्जैन</a></li>
                 <li><a href="faq.html" class="lang-en">FAQ</a><a href="faq.html" class="lang-hi hidden">प्रश्न</a></li>
                 <li><a href="index.html#fleet" class="lang-en">Fleet</a><a href="index.html#fleet" class="lang-hi hidden">गाड़ियाँ</a></li>
                 <li><button id="langToggle" class="btn-nav-outline" aria-label="Toggle Language">हिंदी / English</button></li>
@@ -178,9 +179,8 @@
                             <option value="ujjain_premium">Ujjain Premium (All Temples)</option>
                             <option value="ujjain_dewas">Ujjain & Dewas (Chamunda Mata)</option>
                             <option value="jyotirlinga">Standard Mahakal & Omkareshwar</option>
-                            <option value="malwa">Magical Malwa Tour</option>
+                            <!-- Removed Malwa and Pachmarhi options -->
                             <option value="mandu">Mandu City of Joy</option>
-                            <option value="pachmarhi">Pachmarhi Tour</option>
                             <option value="ujjain">Ujjain Darshan</option>
                             <option value="baglamukhi">Baglamukhi Tour</option>
                         </select>
@@ -213,8 +213,8 @@
                             <span class="lang-hi hidden">कुल यात्रा लागत:</span>
                             <span id="estTotal">₹0</span>
                         </div>
-                        <p class="est-note lang-en">*Inclusive of stay, breakfast & travel.</p>
-                        <p class="est-note lang-hi hidden">*रहने, नाश्ते और यात्रा सहित।</p>
+                        <p class="est-note lang-en">*Inclusive of stay & travel.</p>
+                        <p class="est-note lang-hi hidden">*रहने और यात्रा सहित।</p>
                     </div>
                 </div>
             </div>
@@ -255,79 +255,57 @@
             
             <div class="package-grid">
                 
-                <!-- 1. Mahakal & Omkareshwar (Previously 2nd) -->
-                <div class="package-card popular-pkg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="popular-tag lang-en">Most Booked</div>
-                    <div class="popular-tag lang-hi hidden">सबसे लोकप्रिय</div>
-                    <div class="pkg-image">
-                        <img src="images/pics/mahakal&omkareshwer.jpg" alt="Jyotirlinga Tour" loading="lazy" class="gallery-trigger">
-                        <span class="pkg-badge"></span>
-                    </div>
-                    <div class="pkg-content">
-                        <h3 class="lang-en">Mahakal & Omkareshwar</h3>
-                        <h3 class="lang-hi hidden">महाकाल और ओंकारेश्वर</h3>
-                        
-                        <p class="pkg-desc lang-en">Cover two sacred Jyotirlingas. Includes Mahakaleshwar, Bhasma Aarti assistance, and Omkareshwar.</p>
-                        <p class="pkg-desc lang-hi hidden">दो पवित्र ज्योतिर्लिंगों के दर्शन। महाकालेश्वर, भस्म आरती सहायता और ओंकारेश्वर शामिल।</p>
-                        
-                        <div class="pkg-includes">
-                            <span><i class="fas fa-utensils"></i> Meals</span>
-                            <span><i class="fas fa-om"></i> Darshan</span>
-                        </div>
-                        <a href="package-detail.html?id=jyotirlinga" class="btn-select lang-en">View Details</a>
-                        <a href="package-detail.html?id=jyotirlinga" class="btn-select lang-hi hidden">विवरण देखें</a>
-                        <!-- Added Book Now Button -->
-                        <a href="#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
-                    </div>
-                </div>
-
-                <!-- 2. Magical Malwa Tour (Previously 3rd) -->
-                <div class="package-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="pkg-image">
-                        <img src="images/pics/malwa.png" alt="Magical Malwa" loading="lazy" class="gallery-trigger">
-                        <span class="pkg-badge"></span>
-                    </div>
-                    <div class="pkg-content">
-                        <h3 class="lang-en">Magical Malwa Tour</h3>
-                        <h3 class="lang-hi hidden">मैजिकल मालवा टूर</h3>
-                        
-                        <p class="pkg-desc lang-en">The ultimate MP experience. Visit Ujjain, Omkareshwar, the royal forts of Mandu, and Maheshwar.</p>
-                        <p class="pkg-desc lang-hi hidden">मध्य प्रदेश का बेहतरीन अनुभव। उज्जैन, ओंकारेश्वर, मांडू के शाही किले और महेश्वर की यात्रा।</p>
-                        
-                        <div class="pkg-includes">
-                            <span><i class="fas fa-utensils"></i> Meals</span>
-                            <span><i class="fas fa-hotel"></i> Stay</span>
-                        </div>
-                        <a href="package-detail.html?id=malwa" class="btn-select lang-en">View Details</a>
-                        <a href="package-detail.html?id=malwa" class="btn-select lang-hi hidden">विवरण देखें</a>
-                        <!-- Added Book Now Button -->
-                        <a href="#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
-                    </div>
-                </div>
-
-                <!-- 3. Premium Mahakal & Omkareshwar (Previously 1st) -->
-                <div class="package-card premium-pkg" data-aos="fade-up">
+                <!-- 1. Premium Ujjain & Omkareshwar (Updated with PDF Details) -->
+                <div class="package-card premium-pkg" data-aos="fade-up" data-aos-delay="100">
                     <div class="premium-tag lang-en">PREMIUM ★</div>
                     <div class="premium-tag lang-hi hidden">प्रीमियम ★</div>
                     <div class="pkg-image">
-                        <img src="images/pics/mhakal1.jpg" alt="Premium Mahakal" loading="lazy" class="gallery-trigger">
-                        <span class="pkg-badge"></span>
+                        <img src="images/pics/mahakal&omkareshwer.jpg" alt="Premium Ujjain Omkareshwar" loading="lazy">
+                        <!-- ONLY This package gets Price and Days -->
+                        <span class="pkg-badge">2 Days</span>
                     </div>
                     <div class="pkg-content">
-                        <h3 class="lang-en">Premium Mahakal & Omkareshwar</h3>
-                        <h3 class="lang-hi hidden">प्रीमियम महाकाल और ओंकारेश्वर</h3>
+                        <h3 class="lang-en">Ujjain & Omkareshwar Package</h3>
+                        <h3 class="lang-hi hidden">उज्जैन और ओंकारेश्वर पैकेज</h3>
                         
-                        <p class="pkg-desc lang-en">Luxury experience with VIP Darshan assistance, premium stay, and dedicated guide.</p>
-                        <p class="pkg-desc lang-hi hidden">वीआईपी दर्शन सहायता, प्रीमियम प्रवास और गाइड के साथ लग्जरी अनुभव।</p>
+                        <p class="pkg-desc lang-en">Complete 2-Day Tour. Ujjain, Mahakal Lok, Omkareshwar & Mamleshwar.</p>
+                        <p class="pkg-desc lang-hi hidden">पूरा 2-दिवसीय दौरा। उज्जैन, महाकाल लोक, ओंकारेश्वर और ममलेश्वर।</p>
                         
+                        <!-- Standardized Inclusions -->
                         <div class="pkg-includes">
-                            <span><i class="fas fa-star"></i> VIP</span>
-                            <span><i class="fas fa-hotel"></i> 4★ Stay</span>
-                            <span><i class="fas fa-car"></i> Innova</span>
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
                         </div>
                         <a href="package-detail.html?id=premium" class="btn-select lang-en">View Details</a>
                         <a href="package-detail.html?id=premium" class="btn-select lang-hi hidden">विवरण देखें</a>
-                        <!-- Added Book Now Button -->
+                        <a href="#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
+                        <div style="text-align: center; margin-top: 5px; font-weight: bold; color: var(--primary);">Starting ₹3750</div>
+                    </div>
+                </div>
+
+                <!-- 2. Basic Ujjain Darshan (Removed Price/Days) -->
+                <div class="package-card popular-pkg" data-aos="fade-up">
+                    <div class="popular-tag lang-en">Most Booked</div>
+                    <div class="popular-tag lang-hi hidden">सबसे लोकप्रिय</div>
+                    <div class="pkg-image">
+                        <img src="images/pics/mhakal1.jpg" alt="Basic Darshan" loading="lazy">
+                        <!-- Removed Badge -->
+                    </div>
+                    <div class="pkg-content">
+                        <h3 class="lang-en">Basic Ujjain Darshan</h3>
+                        <h3 class="lang-hi hidden">बुनियादी उज्जैन दर्शन</h3>
+                        
+                        <p class="pkg-desc lang-en">Short spiritual tour covering main temples of Ujjain.</p>
+                        <p class="pkg-desc lang-hi hidden">उज्जैन के मुख्य मंदिरों को कवर करने वाला छोटा आध्यात्मिक दौरा।</p>
+                        
+                        <div class="pkg-includes">
+                            <span><i class="fas fa-car"></i> AC Cab</span>
+                            <span><i class="fas fa-parking"></i> Toll/Parking</span>
+                            <span><i class="fas fa-user-tie"></i> Driver Allowance</span>
+                        </div>
+                        <a href="package-detail.html?id=jyotirlinga" class="btn-select lang-en">View Details</a>
+                        <a href="package-detail.html?id=jyotirlinga" class="btn-select lang-hi hidden">विवरण देखें</a>
                         <a href="#contact" class="btn-primary" style="width: 100%; margin-top: 10px; display: block; text-align: center;">Book Now</a>
                     </div>
                 </div>
@@ -451,9 +429,7 @@
                             <select id="packageSelect" aria-label="Select Package">
                                 <option value="Premium Package">Premium Mahakal & Omkareshwar</option>
                                 <option value="Jyotirlinga Package">Mahakal & Omkareshwar</option>
-                                <option value="Magical Malwa Tour">Magical Malwa</option>
                                 <option value="Mandu Tour">Mandu</option>
-                                <option value="Pachmarhi Tour">Pachmarhi</option>
                                 <option value="Baglamukhi Tour">Baglamukhi</option>
                                 <option value="Ujjain Exclusive">Ujjain Exclusive</option>
                                 <option value="Custom Trip">Custom Trip</option>
@@ -537,7 +513,10 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="packages.html">Packages</a></li>
+                    <li><a href="explore-ujjain.html">Explore</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="#contact">Book Now</a></li>
